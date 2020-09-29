@@ -22,6 +22,7 @@ npm run build
 5. см курс по вью 
 6.добавлять полезные ссылки на гит
 7
+8
 
 for production deploy
 https://www.youtube.com/watch?v=W04ZoOWbqlQ
