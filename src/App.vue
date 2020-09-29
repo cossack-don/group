@@ -1,7 +1,21 @@
 <template>
-  <div id="app">
+  <div id="app" class="app">
+    <div class="header">
+      <p>burger btn</p>
+      header</div>
+
+    <div class="main-wrapper-center">
  <Sidebar/>
-    <router-view/>
+ <router-view/>
+ <div>6</div>
+  <div>6</div>
+    </div>
+
+
+
+
+
+   
     
   
 
@@ -12,36 +26,22 @@
 
 // import Sidebar from './views/Sidebar.vue'
 import Sidebar from '@/views/Sidebar.vue'
+// import MainWrapper from '@/views/MainWrapper.vue'
 
 export default {
    name: 'sidebar',
       //    NAME НУЖНО ПИСАТЬ С МЕЛКОЙ название компонента
   components: {
-    Sidebar
+    Sidebar,
+    // MainWrapper
   },
 }
 
 </script>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
+@import './scss/reset.scss';
+@import './scss/modules/app.scss';
+@import './scss/modules/header.scss';
 </style>

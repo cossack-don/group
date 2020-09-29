@@ -1,1 +1,14 @@
-p {color:red;}
+.sidebar-left {
+    width:20%;
+    height: 900px;
+    background: red;
+}
+
+.sidebar-left__link-wrapper {
+    background: yellow;
+   
+}
+
+.sidebar-left__link {
+color: black;
+}

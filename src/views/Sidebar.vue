@@ -2,8 +2,8 @@
     <div class="sidebar-left">
         
         <ul>
-       <li><router-link to="/">Работа</router-link></li>
-       <li><router-link to="/about">About</router-link></li>
+       <li class="sidebar-left__link-wrapper"><router-link to="/" class="sidebar-left__link">Работа</router-link></li>
+       <li class="sidebar-left__link-wrapper"><router-link to="/about" class="sidebar-left__link">About</router-link></li>
        <!-- <li>    <router-link to="/about">About</router-link></li>
        <li>    <router-link to="/about">About</router-link></li> -->
         </ul>
