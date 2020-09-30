@@ -1,1 +1,14 @@
+@import './vars/reset.scss';
 @import './vars/vars.scss';
+@import './vars/mixin.scss';
+
+
+@import './modules/app.scss';
+@import './modules/header.scss';
+@import './modules/sidebar.scss';
+@import './modules/mainWrapper.scss';
+
+
+
+// @import './modules/404.scss';
+// @import './modules/about.scss';

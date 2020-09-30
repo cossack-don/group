@@ -1,8 +1,20 @@
 <template>
   <div class="header">
-    <div ><img src="../assets/img/icon_burger.svg" alt=""></div>
+
+
+    <div class="header__logo-burger"><img src="../assets/img/logo.png" alt=""></div>
+ <!-- @click="shows" -->
+    
      <!-- <Sidebar :class="{ b: isActive }" /> -->
       <!-- @click="ps" :class="{ b: isActive }" -->
+  <div >
+ 
+  <!-- <transition name="fade">
+    <p v-if="go">привет</p>
+  </transition> -->
+</div>
+
+
   </div>
 </template>
 
@@ -10,11 +22,52 @@
 
 <script>
 // import Sidebar from '@/views/Sidebar.vue'
-
+// import { mapMutations } from 'Vuex'
 export default {
+  
 components: {
   // Sidebar
-},
+}, 
+// data() {
+//   return {
+//     // show:true
+//   }
+// },
+// methods: {
+//  go () {
+//           return $store.state.show
+//           }
+// },
+methods: {
+//   shows() {
+//     let sidebar = document.querySelector('.sidebar-left');
+// sidebar.classList.toggle('b')
+   
+    
+//   }
+}
+//  methods: {
+//     ...mapMutations([
+//       'increment', // `this.increment()` будет вызывать `this.$store.commit('increment')`
+
+     
+//     ]),
+// },
+
+//  computed: {
+//         /*   count () {
+//             return store.state.count
+//           }, */
+//           go () {
+//           return $store.state.isActive
+//           }
+//         },
+//         methods: {
+//           increment () {
+//       $store.commit('increment')
+//           },
+       
+//         }
   //      data() {
   //   return {
   //     isActive:false
@@ -33,15 +86,15 @@ components: {
 }
 </script>
 
-
-<style lang="scss">
-
-@import '../scss/vars/vars.scss';
-
-h1 {
-  background: $blue;
-}
+<style>
 .b {
   display: none;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active до версии 2.1.8 */ {
+  opacity: 0;
 }
 </style>

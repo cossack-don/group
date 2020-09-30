@@ -41,9 +41,4 @@ export default {
 
 </script>
 
-<style lang="scss">
 
-@import './scss/reset.scss';
-@import './scss/modules/app.scss';
-@import './scss/modules/header.scss';
-</style>

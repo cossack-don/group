@@ -1,15 +1,16 @@
 <template>
     <div class="sidebar-left"  >
-        
-        <ul>
-       <li class="sidebar-left__link-wrapper"><router-link to="/" class="sidebar-left__link">Работа</router-link></li>
-       <li class="sidebar-left__link-wrapper"><router-link to="/about" class="sidebar-left__link">About</router-link></li>
-       <li class="sidebar-left__link-wrapper"><router-link to="/" class="sidebar-left__link">Работа</router-link></li>
-       <li class="sidebar-left__link-wrapper"><router-link to="/about" class="sidebar-left__link">About</router-link></li>
-       <!-- <li>    <router-link to="/about">About</router-link></li>
-       <li>    <router-link to="/about">About</router-link></li> -->
-        </ul>
-    <p>333</p>
+         <div class="sidebar-left__links-wrapper">
+            <router-link to="/" class="sidebar-left__link" > <img :src="image" class="sidebar-left__image"> Работа</router-link>
+            <!-- сделать иконки для пунктов и выводить циклом по url -->
+           
+            <router-link to="/about" class="sidebar-left__link"> <img :src="image" class="sidebar-left__image">About</router-link>
+            <router-link to="/three" class="sidebar-left__link"> <img :src="image" class="sidebar-left__image">three</router-link>
+            <router-link to="/four" class="sidebar-left__link"> <img :src="image" class="sidebar-left__image">four</router-link>
+              </div>
+
+
+ 
     </div>
 </template>
 
@@ -19,23 +20,18 @@
 <script>
 
 export default {
-    // data() {
-    //   return {
-    //         links: [
-    //         {link: '1'}
-    //     ]
-    //   }
-    // }
-
-
- 
+data() {
+    return {
+        images:'icon_burger'
+    }
+},
+ computed: {
+    image() {
+      return require(`../assets/img/${this.images}.svg`);
+    }
+  },
 }
 </script>
 
 
 
-<style lang="scss">
-@import '../scss/modules/sidebar.scss';
-
-
-</style>

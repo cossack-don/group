@@ -1,25 +1,39 @@
 .sidebar-left {
     width:20%;
     // height: 900px;
-    background: rgb(255, 255, 255);
+    background: #2e9164;
 
-    &__link-wrapper {
-        // background: yellow;
-        padding-top: 15px;
-        padding-bottom: 15px;
-
-        
-    }
-    &__link-wrapper:hover {
-        transition: 0.5s;
-        background: blue;
+    &__links-wrapper {
+        display: flex;
+        flex-direction: column;
     }
 
     &__link {
-        color: black;
+        color: $link;
+        font-weight: bold;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        display: flex;
+        // justify-content: center;
+        padding-left: 40px;
+        align-items: center;
     }
+
+    &__link:hover {
+        @include linkHover;
+            
+    }
+
+    &__image {
+        margin-right: 10px;
+    }
+   
 }
 
 .router-link-exact-active {
-    color:red;
+    color:$link-active;
+    font-weight: bold;
+    // border-top: solid red 2px;
+    border-bottom: solid #b0d1c2 2px;
 }
+

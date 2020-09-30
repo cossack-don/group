@@ -1,0 +1,12 @@
+@mixin flexBox () {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+
+  @mixin linkHover() {
+    transition: 0.5s;
+    background: #41b883;
+  }

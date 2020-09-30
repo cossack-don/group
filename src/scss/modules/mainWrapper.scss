@@ -1,4 +1,38 @@
 .main-wrapper {
     margin: 0 auto;
     overflow-y: scroll;
+    width: 100%;
+}
+
+.items-url-wrapper {
+ display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+.items-url-wrapper__item {
+// margin-top: 10px;
+// margin-bottom: 10px;
+padding: 10px;
+width: 250px;
+
+    &:hover {
+        color: #ffffff;
+        @include linkHover;
+    }
+
+    &:hover a {
+        transition: 0.5s;
+        color: #ffffff;
+        font-weight: bold;
+    }
+
+
+
+}
+
+.items-url-wrapper__item-wrapper {
+    background: #f9f8a8;
+    box-shadow: 5px 5px 15px black;
 }

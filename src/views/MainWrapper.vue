@@ -3,39 +3,36 @@
 <div class="main-wrapper">
  
 
-       <div id="nav">
-      
-      <!-- сюда компонент сайтбар для всех блоков -->
+<div class="items-url-wrapper">
+   <div class="items-url-wrapper__item-wrapper">
+     <ul v-for="item in job" :key="item.name">
+       <li class="items-url-wrapper__item"><a :href="item.url" target="_blank">{{item.name}} </a></li>
+     </ul>
+ </div>
+
+  <div class="items-url-wrapper__item-wrapper">
+    <ul v-for="item in code" :key="item.name">
+      <li class="items-url-wrapper__item"> <a :href="item.url" target="_blank">{{item.name}} </a></li>
+    </ul>
+
+  </div>
+
+<div class="items-url-wrapper__item-wrapper">
+  <ul v-for="item in vueInfo" :key="item.name">
+      <li class="items-url-wrapper__item"> <a :href="item.url" target="_blank">{{item.name}} </a></li>
+  </ul>
+
+
+ </div>
+</div>
+
     
 <img alt="Vue logo" src="../assets/logo.png">
-<img alt="Vue logo" src="../assets/logo.png">
-<img alt="Vue logo" src="../assets/logo.png">
-<img alt="Vue logo" src="../assets/logo.png">
-<img alt="Vue logo" src="../assets/logo.png">
-<img alt="Vue logo" src="../assets/logo.png">
-<img alt="Vue logo" src="../assets/logo.png">
-<img alt="Vue logo" src="../assets/logo.png">
-<img alt="Vue logo" src="../assets/logo.png">
-<img alt="Vue logo" src="../assets/logo.png">
-<img alt="Vue logo" src="../assets/logo.png">
-<img alt="Vue logo" src="../assets/logo.png">
-<img alt="Vue logo" src="../assets/logo.png">
-<img alt="Vue logo" src="../assets/logo.png">
-<img alt="Vue logo" src="../assets/logo.png">
 
-      <!-- <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link> -->
-       
-
-    <p>main</p>
-    <p ></p>
- <div v-for="item in one" :key="item.name">
-   <a :href="item.url" target="_blank">{{item.name}} </a>
- </div>
-    </div>
-
-    <!-- <div>333</div> -->
-
+<div><img alt="Vue logo" src="../assets/logo.png"></div>
+<div><img alt="Vue logo" src="../assets/logo.png"></div>
+<div><img alt="Vue logo" src="../assets/logo.png"></div>
+<div><img alt="Vue logo" src="../assets/logo.png"></div><div><img alt="Vue logo" src="../assets/logo.png"></div><div><img alt="Vue logo" src="../assets/logo.png"></div>
 </div>
 </template>
 
@@ -50,15 +47,18 @@ export default {
   },
 
     computed: {
-    one() {
+    job() {
       // return this.$store.state.urls
       return this.$store.state.storeUrls.urls
       
+    },
+    code() {
+      return this.$store.state.storeUrls.urlsCode
+    },
+    vueInfo() {
+      return this.$store.state.storeUrls.urlVue
     }
   }
 }
 </script>
 
-<style lang="scss">
-@import '../scss/modules/mainWrapper.scss';
-</style>

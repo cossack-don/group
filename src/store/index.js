@@ -11,7 +11,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   
   state: {
-  
+    // isActive:true,
 
     storeUrls
     // urls: [
@@ -30,8 +30,13 @@ export default new Vuex.Store({
 
     // ]
   },
-  // mutations: {
-  // },
+//   mutations: {
+
+//     increment (state) {
+     
+//         state.isActive = !state.isActive
+//   },
+// }
   // actions: {
   // },
   // modules: {
