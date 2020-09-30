@@ -4,6 +4,8 @@ import router from './router'
 import store from './store'
 
 // @import './scss/main.scss';
+// export const EventBus = new Vue();
+
 
 import './scss/main.scss';
 

@@ -1,5 +1,5 @@
 <template>
-    <div class="sidebar-left"  >
+    <div class="sidebar-left"   v-if="DROPDOWN_STATE">
          <div class="sidebar-left__links-wrapper">
             <router-link to="/" class="sidebar-left__link" > <img :src="image" class="sidebar-left__image"> Работа</router-link>
             <!-- сделать иконки для пунктов и выводить циклом по url -->
@@ -18,14 +18,20 @@
 
 
 <script>
+import {mapGetters} from 'vuex'
 
 export default {
+
+
 data() {
     return {
         images:'icon_burger'
     }
 },
  computed: {
+
+   ...mapGetters(['DROPDOWN_STATE']),
+
     image() {
       return require(`../assets/img/${this.images}.svg`);
     }

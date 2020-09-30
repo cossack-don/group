@@ -2,7 +2,7 @@
   <div class="header">
 
 
-    <div class="header__logo-burger"><img src="../assets/img/logo.png" alt=""></div>
+    <div class="header__logo-burger" @click="btnClick"><img src="../assets/img/logo.png" alt=""></div>
  <!-- @click="shows" -->
     
      <!-- <Sidebar :class="{ b: isActive }" /> -->
@@ -21,6 +21,9 @@
 
 
 <script>
+import {mapGetters, mapActions} from 'vuex'
+
+// import { EventBus } from '../main.js'
 // import Sidebar from '@/views/Sidebar.vue'
 // import { mapMutations } from 'Vuex'
 export default {
@@ -28,6 +31,11 @@ export default {
 components: {
   // Sidebar
 }, 
+computed: {
+  ...mapGetters([
+    'DROPDOWN_STATE'
+  ])
+},
 // data() {
 //   return {
 //     // show:true
@@ -39,11 +47,16 @@ components: {
 //           }
 // },
 methods: {
+  ...mapActions(['TOGGLE_DROPDOWN']),
+  
+  btnClick() {
+    // console.log(5)
+    this.TOGGLE_DROPDOWN()
+  }
 //   shows() {
 //     let sidebar = document.querySelector('.sidebar-left');
 // sidebar.classList.toggle('b')
-   
-    
+
 //   }
 }
 //  methods: {

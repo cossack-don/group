@@ -30,7 +30,7 @@ export default {
       },
 
       {
-        name:'Vk',
+        name:'VK',
         url:'https://vk.com/id43471214'
       },
 
