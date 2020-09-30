@@ -1,14 +1,25 @@
 .sidebar-left {
     width:20%;
-    height: 900px;
-    background: red;
+    // height: 900px;
+    background: rgb(255, 255, 255);
+
+    &__link-wrapper {
+        // background: yellow;
+        padding-top: 15px;
+        padding-bottom: 15px;
+
+        
+    }
+    &__link-wrapper:hover {
+        transition: 0.5s;
+        background: blue;
+    }
+
+    &__link {
+        color: black;
+    }
 }
 
-.sidebar-left__link-wrapper {
-    background: yellow;
-   
-}
-
-.sidebar-left__link {
-color: black;
+.router-link-exact-active {
+    color:red;
 }

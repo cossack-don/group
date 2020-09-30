@@ -8,6 +8,21 @@
       <!-- сюда компонент сайтбар для всех блоков -->
     
 <img alt="Vue logo" src="../assets/logo.png">
+<img alt="Vue logo" src="../assets/logo.png">
+<img alt="Vue logo" src="../assets/logo.png">
+<img alt="Vue logo" src="../assets/logo.png">
+<img alt="Vue logo" src="../assets/logo.png">
+<img alt="Vue logo" src="../assets/logo.png">
+<img alt="Vue logo" src="../assets/logo.png">
+<img alt="Vue logo" src="../assets/logo.png">
+<img alt="Vue logo" src="../assets/logo.png">
+<img alt="Vue logo" src="../assets/logo.png">
+<img alt="Vue logo" src="../assets/logo.png">
+<img alt="Vue logo" src="../assets/logo.png">
+<img alt="Vue logo" src="../assets/logo.png">
+<img alt="Vue logo" src="../assets/logo.png">
+<img alt="Vue logo" src="../assets/logo.png">
+
       <!-- <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> -->
        
@@ -19,7 +34,7 @@
  </div>
     </div>
 
-    <div>333</div>
+    <!-- <div>333</div> -->
 
 </div>
 </template>
