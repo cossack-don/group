@@ -18,6 +18,13 @@
 .main-wrapper-center {
     display: flex;
     // background: black;
-    height: calc(100vh - 62px);
+    height: calc(100vh - 70px);
     // 100vh - высота header в px
+}
+
+@media screen and (max-width: 960px) {
+    .main-wrapper-center {
+        height: calc(100vh - 109px);
+    }
+
 }

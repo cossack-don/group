@@ -4,6 +4,7 @@
       <p>burger btn</p>
       header</div> -->
       <Header/>
+      <!-- <Sidetop/> -->
 
     <div class="main-wrapper-center">
  <Sidebar/>
@@ -28,13 +29,15 @@
 // import Sidebar from './views/Sidebar.vue'
 import Sidebar from '@/views/Sidebar.vue'
 import Header from '@/views/Header.vue'
+// import Sidetop from '@/views/Sidetop.vue'
 
 export default {
    name: 'sidebar',
       //    NAME НУЖНО ПИСАТЬ С МЕЛКОЙ название компонента
   components: {
     Sidebar,
-    Header
+    Header,
+    // Sidetop
     // MainWrapper
   },
 }

@@ -12,9 +12,9 @@
             <router-link to="/four" class="sidebar-left__link"> <img :src="image" class="sidebar-left__image">four</router-link>
               </div>
       
+      
 
 
- 
     </div>
   </transition>
     
@@ -61,4 +61,14 @@ data() {
 </script>
 
 
+<style lang="scss">
 
+
+
+@media screen and (max-width: 960px) {
+  .sidebar-left {
+  display: none;
+}
+ 
+}
+</style>

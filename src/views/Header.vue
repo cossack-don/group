@@ -10,15 +10,31 @@
 <!-- добавить 2 обработчика как? -->
 <!-- https://ru.stackoverflow.com/questions/930960/%D0%9F%D0%BE%D0%B2%D0%B5%D1%81%D0%B8%D1%82%D1%8C-%D0%BD%D0%B5%D1%81%D0%BA%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE-%D1%80%D0%B0%D0%B7%D0%BD%D1%8B%D1%85-%D1%81%D0%BE%D0%B1%D1%8B%D1%82%D0%B8%D0%B9-%D0%BF%D0%BE-%D1%83%D1%81%D0%BB%D0%BE%D0%B2%D0%B8%D1%8E-vuejs -->
 
+<transition name="fade">
+<div class="about z" v-if="DROPDOWN_STATE">    <ul class="l">
+      <li>home</li>
+      <li>job</li>
+      <li>res</li>
+      <li>contact</li>
+    </ul></div>
+ </transition>
+    
 
-    <router-link to="/" class="header__logo-vue" > <div class="header__image-wrapper"><img :src="image"></div></router-link>
+
+  <div>
+
+
+
+<router-link to="/" class="header__logo-vue" > <span class="header__image-wrapper"><img :src="image"></span></router-link>
+  </div>
+    
      
-  <div >
+  <!-- <div > -->
  
   <!-- <transition name="fade">
     <p v-if="go">привет</p>
   </transition> -->
-</div>
+<!-- </div> -->
 
 
   </div>
@@ -124,5 +140,24 @@ methods: {
 
 <style>
 
+.l {
+  display: flex;
+  justify-content: center;
+  margin: 15px;
+}
+.l li {
+  margin-right: 10px;
+  color:#ffffff;
+}
 
+ .z {
+   display: none;
+ }
+
+
+@media screen and (max-width: 960px) {
+   .z {
+   display: block;
+ }
+}
 </style>
