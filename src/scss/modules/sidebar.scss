@@ -37,3 +37,15 @@
     border-bottom: solid #b0d1c2 2px;
 }
 
+
+
+
+
+// стили для transition sidebar при клике на бургер идет анимация
+.fade-enter-active, .fade-leave-active {
+    transition: opacity .5s;
+  }
+  .fade-enter, .fade-leave-to {
+    opacity: 0;
+  }
+  // стили для transition sidebar при клике на бургер идет анимация  КОНЕЦ

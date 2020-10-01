@@ -1,12 +1,18 @@
 <template>
   <div class="header">
 
+    <div  class="header__logo-burger"  @click="btnClick"><div class="header__image-wrapper"><img src="../assets/img/icon_burger.svg" alt="" ></div></div>
+    <!-- <div class="header__logo-vue" ><img src="../assets/img/logo.png" alt=""></div> -->
 
-    <div class="header__logo-burger" @click="btnClick"><img src="../assets/img/logo.png" alt=""></div>
- <!-- @click="shows" -->
-    
-     <!-- <Sidebar :class="{ b: isActive }" /> -->
-      <!-- @click="ps" :class="{ b: isActive }" -->
+
+
+<!-- :class="{ active: isActive }" @click="isActive = !isActive" -->
+<!-- добавить 2 обработчика как? -->
+<!-- https://ru.stackoverflow.com/questions/930960/%D0%9F%D0%BE%D0%B2%D0%B5%D1%81%D0%B8%D1%82%D1%8C-%D0%BD%D0%B5%D1%81%D0%BA%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE-%D1%80%D0%B0%D0%B7%D0%BD%D1%8B%D1%85-%D1%81%D0%BE%D0%B1%D1%8B%D1%82%D0%B8%D0%B9-%D0%BF%D0%BE-%D1%83%D1%81%D0%BB%D0%BE%D0%B2%D0%B8%D1%8E-vuejs -->
+
+
+    <router-link to="/" class="header__logo-vue" > <div class="header__image-wrapper"><img :src="image"></div></router-link>
+     
   <div >
  
   <!-- <transition name="fade">
@@ -31,10 +37,23 @@ export default {
 components: {
   // Sidebar
 }, 
+
+data() {
+
+    return {
+        images:'logo',
+        isActive:true
+    }
+},
+
 computed: {
   ...mapGetters([
     'DROPDOWN_STATE'
-  ])
+  ]),
+
+    image() {
+      return require(`../assets/img/${this.images}.png`);
+    }
 },
 // data() {
 //   return {
@@ -52,6 +71,10 @@ methods: {
   btnClick() {
     // console.log(5)
     this.TOGGLE_DROPDOWN()
+  },
+
+  go() {
+    
   }
 //   shows() {
 //     let sidebar = document.querySelector('.sidebar-left');
@@ -100,14 +123,6 @@ methods: {
 </script>
 
 <style>
-.b {
-  display: none;
-}
 
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
-}
-.fade-enter, .fade-leave-to /* .fade-leave-active до версии 2.1.8 */ {
-  opacity: 0;
-}
+
 </style>

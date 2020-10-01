@@ -13,6 +13,8 @@ export default new Vuex.Store({
   state: {
     toggleBurger:true,
 
+    // btnAbout:false,
+
     storeUrls
     // urls: [
     //   {
@@ -33,19 +35,37 @@ export default new Vuex.Store({
   mutations: {
 CHANGE_DROPDOWN:(state) => {
 state.toggleBurger = !state.toggleBurger
-}
+},
+
+
+
+
+
+      
 
 },
   actions: {
     TOGGLE_DROPDOWN({commit}) {
       commit('CHANGE_DROPDOWN')
-    }
+    },
+
+
+
+
+
   },
   getters: {
     DROPDOWN_STATE(state) {
       return state.toggleBurger
-    }
-  }
+    },
+
+
+
+
+
+  },
+
+
   // modules: {
   // }
 })

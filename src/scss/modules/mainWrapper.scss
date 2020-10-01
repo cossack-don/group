@@ -17,10 +17,14 @@
 padding: 10px;
 width: 250px;
 
+
+
     &:hover {
         color: #ffffff;
         @include linkHover;
     }
+
+   
 
     &:hover a {
         transition: 0.5s;
@@ -36,3 +40,14 @@ width: 250px;
     background: #f9f8a8;
     box-shadow: 5px 5px 15px black;
 }
+
+ .items-url-wrapper__item--link-vue  {
+    color:#00ba81;
+    font-weight: bold;
+ }
+
+ .items-url-wrapper__item--link-helps {
+    
+    color:#25485f;
+    font-weight: bold;
+ }

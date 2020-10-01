@@ -12,14 +12,14 @@
 
   <div class="items-url-wrapper__item-wrapper">
     <ul v-for="item in code" :key="item.name">
-      <li class="items-url-wrapper__item"> <a :href="item.url" target="_blank">{{item.name}} </a></li>
+      <li class="items-url-wrapper__item"> <a :href="item.url" target="_blank" class="items-url-wrapper__item--link-helps">{{item.name}} </a></li>
     </ul>
 
   </div>
 
 <div class="items-url-wrapper__item-wrapper">
   <ul v-for="item in vueInfo" :key="item.name">
-      <li class="items-url-wrapper__item"> <a :href="item.url" target="_blank">{{item.name}} </a></li>
+      <li class="items-url-wrapper__item"> <a :href="item.url" target="_blank" class="items-url-wrapper__item--link-vue">{{item.name}} </a></li>
   </ul>
 
 

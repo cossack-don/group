@@ -1,15 +1,51 @@
 .header {
     display: flex;
-    justify-content: space-between;
-    padding-left: 15px;
-    padding-right: 15px;
+    // justify-content: space-between;
+    // padding-left: 15px;
+    // padding-right: 15px;
     background: #4b6577;
+    padding: 10px;
 
     &__logo-burger {
         cursor: pointer;
-        padding: 15px;
-        
+       
+        flex-basis: 50%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
     }
- 
+   
+    &__logo-vue {
+       
+        flex-basis: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    border: none;
+    }
+    
+    &__image-wrapper {
+        height: 50px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    }
+    &__image-wrapper:hover {
+        transition: 1s;
+        box-shadow: 5px 5px 15px black;
+        background: #ffffff;
+        width: 50px;
+        border-radius: 50%;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    &__image-wrapper:active {
+        transition: none;
+        background: #377197;
+    }
 }
-
