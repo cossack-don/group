@@ -6,7 +6,7 @@
     // padding-right: 15px;
     background: #4b6577;
     padding: 10px;
-
+// opacity: 0.8;
     &__logo-burger {
         cursor: pointer;
        
@@ -49,4 +49,47 @@
         transition: none;
         background: #377197;
     }
+}
+
+
+
+.sidebar-top {
+
+
+    &__link {
+        padding: 10px;
+        // border-radius: 60%;
+        border: none;
+        // color: #172b42;
+        font-weight: bold;
+    }
+
+    &__link:hover {
+        transition: 0.5s;
+    background: #41b883;
+    border-radius: 60%;
+    }
+
+    &__link--color {
+        color: #032238;
+    }
+
+}
+
+
+.router-link-exact-active {
+    color:$link-active;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 960px) {
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        position: fixed;
+        width: 100%;
+    }
+
 }

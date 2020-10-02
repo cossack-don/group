@@ -3,17 +3,17 @@
          <div class="sidebar-left"   v-if="DROPDOWN_STATE">
         
  
-           <div class="sidebar-left__links-wrapper">
-            <router-link to="/" class="sidebar-left__link" > <img :src="image" class="sidebar-left__image"> Работа</router-link>
+         <div class="sidebar-left__links-wrapper">
+           <router-link to="/" class="sidebar-left__link" > <img src="../assets/img/home-icon.png" class="sidebar-left__image"> Работа</router-link>
             <!-- сделать иконки для пунктов и выводить циклом по url -->
            
-            <router-link to="/about" class="sidebar-left__link"> <img :src="image" class="sidebar-left__image">About</router-link>
-            <router-link to="/three" class="sidebar-left__link"> <img :src="image" class="sidebar-left__image">three</router-link>
-            <router-link to="/four" class="sidebar-left__link"> <img :src="image" class="sidebar-left__image">four</router-link>
+            <router-link to="/about" class="sidebar-left__link"> <img src="../assets/img/gift-box-icon.png" class="sidebar-left__image">About</router-link>
+            <router-link to="/three" class="sidebar-left__link"> <img src="../assets/img/calendar-icon.png" class="sidebar-left__image">three</router-link>
+            <router-link to="/four" class="sidebar-left__link"> <img src="../assets/img/calendar-icon.png" class="sidebar-left__image">four</router-link>
+            
               </div>
       
-      
-
+    
 
     </div>
   </transition>
@@ -28,10 +28,13 @@
 
 
 <script>
+// import SidebarRoutersTemplate from '@/views/SidebarRoutersTemplate.vue'
 import {mapGetters} from 'vuex'
 
 export default {
-
+components: {
+  // SidebarRoutersTemplate
+},
 
 data() {
     return {
@@ -45,6 +48,13 @@ data() {
           
 
         // ]
+        // image:[
+        //   {
+        //        name:'Cтарый сайт №2',
+        //         url:'../assets/img.logo.png'
+        //   }
+        // ]
+
         images:'icon_burger.svg'
     }
 },
@@ -52,10 +62,12 @@ data() {
 
    ...mapGetters(['DROPDOWN_STATE']),
 
-    image() {
-      return require(`../assets/img/${this.images}`);
-      // return require(`../assets/img/${this.images}.svg`);
-    }
+
+
+    // image() {
+    //   return require(`../assets/img/${this.images}`);
+    //   // return require(`../assets/img/${this.images}.svg`);
+    // }
   },
 }
 </script>
@@ -65,10 +77,5 @@ data() {
 
 
 
-@media screen and (max-width: 960px) {
-  .sidebar-left {
-  display: none;
-}
- 
-}
+
 </style>

@@ -2,6 +2,7 @@
 <transition name="fade">
   <div class="about " v-if="DROPDOWN_STATE">
 
+            
   </div>
   </transition>
 </template>

@@ -1,5 +1,5 @@
 .sidebar-left {
-    width:20%;
+    width:300px;
     // height: 900px;
     background: #2e9164;
 
@@ -49,3 +49,11 @@
     opacity: 0;
   }
   // стили для transition sidebar при клике на бургер идет анимация  КОНЕЦ
+
+
+  @media screen and (max-width: 960px) {
+    .sidebar-left {
+    display: none;
+  }
+   
+  }

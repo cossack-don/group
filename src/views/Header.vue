@@ -11,16 +11,34 @@
 <!-- https://ru.stackoverflow.com/questions/930960/%D0%9F%D0%BE%D0%B2%D0%B5%D1%81%D0%B8%D1%82%D1%8C-%D0%BD%D0%B5%D1%81%D0%BA%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE-%D1%80%D0%B0%D0%B7%D0%BD%D1%8B%D1%85-%D1%81%D0%BE%D0%B1%D1%8B%D1%82%D0%B8%D0%B9-%D0%BF%D0%BE-%D1%83%D1%81%D0%BB%D0%BE%D0%B2%D0%B8%D1%8E-vuejs -->
 
 <transition name="fade">
-<div class="about z" v-if="DROPDOWN_STATE">    <ul class="l">
-      <li>home</li>
-      <li>job</li>
-      <li>res</li>
-      <li>contact</li>
-    </ul></div>
+<div class="about z" v-if="DROPDOWN_STATE">   
+  
+       
+      <div class="sidebar-left__links-wrapper sidebar-top">
+           <router-link to="/" class="sidebar-top__link sidebar-top__link--color" > Работа</router-link>
+            <!-- сделать иконки для пунктов и выводить циклом по url -->
+           
+            <router-link to="/about" class="sidebar-top__link sidebar-top__link--color"> About</router-link>
+            <router-link to="/three" class="sidebar-top__link sidebar-top__link--color"> three</router-link>
+            <router-link to="/four" class="sidebar-top__link sidebar-top__link--color"> four</router-link>
+            <!-- class="sidebar-left__link" -->
+              </div>
+
+    </div>
  </transition>
     
 
+    <!-- transition: 0.5s;
+    background: #41b883;
 
+
+        color: #35495e;
+    font-weight: bold;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    /* display: flex; */
+    /* padding-left: 40px; */
+    /* align-items: center; -->
   <div>
 
 
@@ -43,6 +61,7 @@
 
 
 <script>
+// import SidebarRoutersTemplate from '@/views/SidebarRoutersTemplate.vue'
 import {mapGetters, mapActions} from 'vuex'
 
 // import { EventBus } from '../main.js'
@@ -51,7 +70,8 @@ import {mapGetters, mapActions} from 'vuex'
 export default {
   
 components: {
-  // Sidebar
+  // // Sidebar
+  // SidebarRoutersTemplate
 }, 
 
 data() {

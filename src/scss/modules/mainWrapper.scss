@@ -52,3 +52,18 @@ width: 250px;
     color:#25485f;
     font-weight: bold;
  }
+
+
+
+ 
+@media screen and (max-width: 960px) {
+
+ 
+    .main-wrapper {
+        overflow: inherit;
+    }
+
+    .items-url-wrapper {
+        margin-top: 100px;
+    }
+}
