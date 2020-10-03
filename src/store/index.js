@@ -3,19 +3,21 @@ import Vuex from 'vuex'
 
 // import storeStateUrls from './modules/storeStateUrls/state';
 import storeUrls from './storeUrls'
+import nameTechnology from './nameTechnology'
 
 // Нужно разделить store на статические данные state и сделать вложенность и передачу
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-  
+
   state: {
-    toggleBurger:true,
+    toggleBurger: true,
 
     // btnAbout:false,
 
-    storeUrls
+    storeUrls,
+    nameTechnology,
     // urls: [
     //   {
     //     name:'winediscovery',
@@ -33,19 +35,19 @@ export default new Vuex.Store({
     // ]
   },
   mutations: {
-CHANGE_DROPDOWN:(state) => {
-state.toggleBurger = !state.toggleBurger
-},
+    CHANGE_DROPDOWN: (state) => {
+      state.toggleBurger = !state.toggleBurger
+    },
 
 
 
 
 
-      
 
-},
+
+  },
   actions: {
-    TOGGLE_DROPDOWN({commit}) {
+    TOGGLE_DROPDOWN({ commit }) {
       commit('CHANGE_DROPDOWN')
     },
 
