@@ -3,6 +3,7 @@
 <div class="main-wrapper">
  
 
+
 <div class="items-url-wrapper">
    <div class="items-url-wrapper__item-wrapper">
      <ul v-for="item in job" :key="item.name">
