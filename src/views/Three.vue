@@ -9,8 +9,22 @@
 
 
 <div v-for="(item, idx) in documents" :key="idx">
-  <p>{{item.name}}</p>
+  <p v-on:dblclick="bclick">{{item.name}} {{item.id}} -{{idx}} </p>
    <button @click="deleteItem(item.id)"> delete item</button>
+   <!-- если item id = id имени то нужно показывать инпут  -->
+
+  <div v-if="toggle">
+
+  <input type="text" v-model="newame" >
+  <button @click="chancheItem(item.id)" >изменить Item</button>
+  </div>
+
+
+<!-- {{item.name}} -->
+<!-- {{newName}}
+{{documents[1].name}} -->
+
+
 </div>
 <div>
   <button  @click="addItem(name)">click me</button>
@@ -38,7 +52,10 @@ export default {
   data() {
     return {
       documents: [],
-      name:''
+      name:'',
+      newame:'',
+
+      toggle:false
     }
  },
 
@@ -47,6 +64,17 @@ export default {
     documents: db.collection('documents').orderBy('createdAt'),
   },
   methods: {
+    bclick() {
+      
+        this.toggle = !this.toggle
+    
+      
+    },
+
+
+
+
+
     addItem(name) {
       if(this.name === '') {
         return
@@ -59,7 +87,19 @@ export default {
 
      deleteItem (id) {   
      db.collection('documents').doc(id).delete()
-   }
+   },
+
+    chancheItem(id) {
+// this.name = newame
+// this.newame = this.name
+// name = name
+      // const user = { ...this.documents }
+      // this.documents.name = this.newName;
+// db.collection('documents').update({ name})
+   db.collection('documents').doc(id).update({name:this.newame })
+// db.collection('documents').update({newName })
+
+    }
 
  
   }
