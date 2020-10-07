@@ -2,59 +2,47 @@
   <div class="about main-wrapper">
     <h1>THREE</h1>
 
-      <div>
-        <h1 >Исправить все посты</h1>
+    <div>
+      <h1>Исправить все посты</h1> <br>
 
-              <!-- START WRAPPER INPUT ADD ITEM -->
+      <p style="border:solid red 3px">  1. Отредактировать проект + комменитровать  <br>
+        2. Взять макет psd Figma + верстать его и натянуть на WP + см to code как натягивать <br>
+        3. Сделать слайдер на vue  <br>
+        4. Сделать время на вью <br>
+        5. Создать 2 столбика дел, которые уже сделали и которые нужно сделать <br>
+        6. Смотреть курс VUE JS + ДР ВИДЕО <br>
+        7.VUEX разобрать <br>
+        8. смотреть js native  <br>
+        
+        </p>
+      <!-- START WRAPPER INPUT ADD ITEM --> 
       <div>
-          <!-- START add ITEM -->
-          <button  @click="addItem(name)">click me</button>
-          <input type="text" v-model.trim="name">
-          <!-- END  add ITEM -->
+        <!-- START add ITEM -->
+        <button @click="addItem(name)">click me</button>
+        <input type="text"
+               v-model.trim="name" @keyup.enter="addItem(name)">
+        <!-- END  add ITEM -->
 
       </div>
       <!-- END WRAPPER INPUT ADD ITEM -->
       <!-- если будет много постов сделать фиксед кнопку изменить -->
-      <button  @click="bclick">изменить</button>
-      <input type="text" v-model.trim="newName" v-if="toggle">
-      </div>
-    
- 
-      <div class="wp">
+      <input type="text"
+             v-model.trim="newName"
+             v-if="toggle">
+    </div>
+
+
+    <div class="wp">
       <!-- START WRAPPER ITEMS -->
       <div>
-      <div v-for="(item, idx) in documents" :key="idx">
-
-
-              <!-- START DELETE ITEM -->
-              <p>{{item.name}}  </p>
-              <!-- {{item.id}}  для bclick -->
-
-              <button @click="deleteItem(item.id)"> delete item</button>
-              <!-- END DELETE ITEM -->
-
-
-              <!-- START CHENCHE ITEM -->
-              <!-- <div   v-if="toggle">
-
-              <input type="text" v-model="newName" >
-              <button @click="chancheItem(item.id)" >изменить Item</button>
-              
-              </div> -->
-              <!-- END CHENCHE ITEM -->
-
-
-      </div>
-      </div>
-      <!-- END WRAPPER ITEMS -->
-      
-      <div class="wp-item">
-          
-        
-              <button @click="chancheItem(item.id)" v-for="item in documents" :key="item.id" >изменить Item</button>
-      </div>
-      <!-- {{this.documents[1]}} -->
+        <div v-for="(item, idx) in documents" :key="idx">
+          <p v-if="!item.isEditing">{{ item.name }}</p>
+          <input v-else type="text" v-model.trim="item.name" />
+          <button @click="deleteItem(item.id)">удалить</button>
+          <button @click="editItem(item)">{{ item.isEditing ? 'сохранить' : 'изменить' }}</button>
         </div>
+      </div>
+    </div>
 
 
   </div>
@@ -63,12 +51,11 @@
 
 <script>
 
-    // VUEFIRE START
-    import { db } from '../db'
-    // VUEFIRE END
+// VUEFIRE START
+import {db} from '../db'
+// VUEFIRE END
 
-    import {mapGetters} from 'vuex'
-
+import {mapGetters} from 'vuex'
 
 
 export default {
@@ -83,14 +70,12 @@ export default {
 
   data() {
     return {
-
       documents: [],
-      name:'',
-      newName:'',
-      toggle:false
-
+      name: '',
+      newName: '',
+      toggle: false
     }
- },
+  },
 
 
   firestore: {
@@ -99,62 +84,37 @@ export default {
 
 
   methods: {
+    addItem(name) {
+
+      if(this.name === '') {
+        return
+      }
+
+      const createdAt = new Date()
+
+      db.collection('documents').add({ name, createdAt, isEditing: false})
+
+      this.name = ''
+    },
 
 
-        bclick() {
-         
-            this.toggle = !this.toggle
-            // let hide = document.querySelector('.hide');
-            // hide.style.display = (hide.style.display == 'none') ? 'block' : 'none'
-         
-        
-            
-          
-        },
+    deleteItem(id) {
+      db.collection('documents').doc(id).delete()
+    },
 
 
-        addItem(name) {
-
-          if(this.name === '') {
-            return
-          }
-
-          const createdAt = new Date()
-        
-          db.collection('documents').add({ name, createdAt })
-
-          this.name = ''
-        },
+    editItem(item) {
+      item.isEditing = !item.isEditing;
+      db.collection('documents').doc(item.id).update({ name: item.name });
+    }
 
 
-
-        deleteItem (id) {   
-          db.collection('documents').doc(id).delete()
-      },
-
-
-
-        chancheItem(id) {
-          if(this.newName === '') {
-            return
-          }
-          db.collection('documents').doc(id).update({name:this.newName })
-            // let hide = document.querySelector('.hide');
-            // hide.style.display = 'none'
-            this.newName = ''
-            this.toggle = !this.toggle
-
-        
-        }
-
- 
   }
 }
 </script>
 
 
-
-<style >
+<style>
 /* .hide {
   display: none;
 } */
@@ -162,6 +122,7 @@ export default {
   display: flex;
   justify-content: center;
 }
+
 .wp-item {
   display: flex;
   flex-direction: column;
