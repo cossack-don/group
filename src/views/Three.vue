@@ -1,62 +1,94 @@
 <template>
   <div class="about main-wrapper">
     <h1>THREE</h1>
-    <br>
-      <p>Сделать страницу как ту ду лист, чтобы можно было добавлять,удалять изменять данные и интегрировать с VUEFIRE</p>
-    <br>
 
-    <p>мб сделать таблицу с расписанием для лены</p>
+      <div>
+        <h1 >Исправить все посты</h1>
+
+              <!-- START WRAPPER INPUT ADD ITEM -->
+      <div>
+          <!-- START add ITEM -->
+          <button  @click="addItem(name)">click me</button>
+          <input type="text" v-model.trim="name">
+          <!-- END  add ITEM -->
+
+      </div>
+      <!-- END WRAPPER INPUT ADD ITEM -->
+      <!-- если будет много постов сделать фиксед кнопку изменить -->
+      <button  @click="bclick">изменить</button>
+      <input type="text" v-model.trim="newName" v-if="toggle">
+      </div>
+    
+ 
+      <div class="wp">
+      <!-- START WRAPPER ITEMS -->
+      <div>
+      <div v-for="(item, idx) in documents" :key="idx">
 
 
-<div v-for="(item, idx) in documents" :key="idx">
-  <p v-on:dblclick="bclick(item.id)" class="qs">{{item.name}}  </p>
-  <!-- {{item.id}} -->
-   <button @click="deleteItem(item.id)"> delete item</button>
-   <!-- если item id = id имени то нужно показывать инпут  -->
+              <!-- START DELETE ITEM -->
+              <p>{{item.name}}  </p>
+              <!-- {{item.id}}  для bclick -->
 
-  <div  :class="item.id" class="q">
-<!-- v-if="toggle" -->
-  <input type="text" v-model="newame" >
-  <button @click="chancheItem(item.id)" >изменить Item</button>
+              <button @click="deleteItem(item.id)"> delete item</button>
+              <!-- END DELETE ITEM -->
+
+
+              <!-- START CHENCHE ITEM -->
+              <!-- <div   v-if="toggle">
+
+              <input type="text" v-model="newName" >
+              <button @click="chancheItem(item.id)" >изменить Item</button>
+              
+              </div> -->
+              <!-- END CHENCHE ITEM -->
+
+
+      </div>
+      </div>
+      <!-- END WRAPPER ITEMS -->
+      
+      <div class="wp-item">
+          
+        
+              <button @click="chancheItem(item.id)" v-for="item in documents" :key="item.id" >изменить Item</button>
+      </div>
+      <!-- {{this.documents[1]}} -->
+        </div>
+
+
   </div>
 
-
-<!-- {{item.name}} -->
-<!-- {{newName}}
-{{documents[1].name}} -->
-
-
-</div>
-<div>
-  <button  @click="addItem(name)">click me</button>
-  
-  <input type="text" v-model.trim="name">
-
-
-</div>
-
-  </div>
 </template>
 
 <script>
-// VUEFIRE START
-import { db } from '../db'
-// VUEFIRE END
 
-import {mapGetters} from 'vuex'
+    // VUEFIRE START
+    import { db } from '../db'
+    // VUEFIRE END
+
+    import {mapGetters} from 'vuex'
+
+
 
 export default {
+
   name: 'HelloWorld',
+
+
   computed: {
     ...mapGetters(['STATE_TEST'])
   },
+
+
   data() {
     return {
+
       documents: [],
       name:'',
-      newame:'',
-
+      newName:'',
       toggle:false
+
     }
  },
 
@@ -64,71 +96,74 @@ export default {
   firestore: {
     documents: db.collection('documents').orderBy('createdAt'),
   },
+
+
   methods: {
-    bclick(id) {
 
-      console.log(id)
-      // console.log(event.target)
-        // this.toggle = !this.toggle
-        let qs = document.querySelector('.qs');
-        console.log(qs.classList.remove(id))
-        // id.classList.add('q');
+
+        bclick() {
+         
+            this.toggle = !this.toggle
+            // let hide = document.querySelector('.hide');
+            // hide.style.display = (hide.style.display == 'none') ? 'block' : 'none'
+         
         
-       
-//  q.style.display = (q.style.display == 'none') ? 'block' : 'none'
-// console.log(q)
-// console.log(event.target)
-// for(let i = 0; i < q.length; i++) {
-  //  console.log(i)
-
-// q.style.display = (q.style.display == 'none') ? 'block' : 'none'
+            
+          
+        },
 
 
+        addItem(name) {
 
-// }
-     
-        // q.style.display="block";
-    
-      
-    },
+          if(this.name === '') {
+            return
+          }
 
+          const createdAt = new Date()
+        
+          db.collection('documents').add({ name, createdAt })
 
+          this.name = ''
+        },
 
 
 
-    addItem(name) {
-      if(this.name === '') {
-        return
-      }
-    const createdAt = new Date()
-    
-     db.collection('documents').add({ name, createdAt })
-     this.name = ''
-    },
+        deleteItem (id) {   
+          db.collection('documents').doc(id).delete()
+      },
 
-     deleteItem (id) {   
-     db.collection('documents').doc(id).delete()
-   },
 
-    chancheItem(id) {
-// this.name = newame
-// this.newame = this.name
-// name = name
-      // const user = { ...this.documents }
-      // this.documents.name = this.newName;
-// db.collection('documents').update({ name})
-   db.collection('documents').doc(id).update({name:this.newame })
-// db.collection('documents').update({newName })
 
-    }
+        chancheItem(id) {
+          if(this.newName === '') {
+            return
+          }
+          db.collection('documents').doc(id).update({name:this.newName })
+            // let hide = document.querySelector('.hide');
+            // hide.style.display = 'none'
+            this.newName = ''
+            this.toggle = !this.toggle
+
+        
+        }
 
  
   }
 }
 </script>
 
+
+
 <style >
-.q {
+/* .hide {
   display: none;
+} */
+.wp {
+  display: flex;
+  justify-content: center;
+}
+.wp-item {
+  display: flex;
+  flex-direction: column;
 }
 </style>
