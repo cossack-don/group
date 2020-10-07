@@ -9,12 +9,13 @@
 
 
 <div v-for="(item, idx) in documents" :key="idx">
-  <p v-on:dblclick="bclick">{{item.name}} {{item.id}} -{{idx}} </p>
+  <p v-on:dblclick="bclick(item.id)" class="qs">{{item.name}}  </p>
+  <!-- {{item.id}} -->
    <button @click="deleteItem(item.id)"> delete item</button>
    <!-- если item id = id имени то нужно показывать инпут  -->
 
-  <div v-if="toggle">
-
+  <div  :class="item.id" class="q">
+<!-- v-if="toggle" -->
   <input type="text" v-model="newame" >
   <button @click="chancheItem(item.id)" >изменить Item</button>
   </div>
@@ -64,9 +65,29 @@ export default {
     documents: db.collection('documents').orderBy('createdAt'),
   },
   methods: {
-    bclick() {
-      
-        this.toggle = !this.toggle
+    bclick(id) {
+
+      console.log(id)
+      // console.log(event.target)
+        // this.toggle = !this.toggle
+        let qs = document.querySelector('.qs');
+        console.log(qs.classList.remove(id))
+        // id.classList.add('q');
+        
+       
+//  q.style.display = (q.style.display == 'none') ? 'block' : 'none'
+// console.log(q)
+// console.log(event.target)
+// for(let i = 0; i < q.length; i++) {
+  //  console.log(i)
+
+// q.style.display = (q.style.display == 'none') ? 'block' : 'none'
+
+
+
+// }
+     
+        // q.style.display="block";
     
       
     },
@@ -105,3 +126,9 @@ export default {
   }
 }
 </script>
+
+<style >
+.q {
+  display: none;
+}
+</style>
