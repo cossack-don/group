@@ -1,5 +1,5 @@
 <template>
-  <div class="header">
+  <div class="header" >
 
     <div  class="header__logo-burger"  @click="btnClick"><div class="header__image-wrapper"><img src="../assets/img/icon_burger.svg" alt="" ></div></div>
     <!-- <div class="header__logo-vue" ><img src="../assets/img/logo.png" alt=""></div> -->
