@@ -22,7 +22,10 @@
             <router-link to="/three" class="sidebar-top__link sidebar-top__link--color"> three</router-link>
             <router-link to="/four" class="sidebar-top__link sidebar-top__link--color"> four</router-link>
             <!-- class="sidebar-left__link" -->
-              </div>
+
+            <div @click="btnClick">X</div>
+            <!-- выход, скачать png иконку и поставить вверх ,курсор поинтер сделать -->
+      </div>
 
     </div>
  </transition>
