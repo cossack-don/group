@@ -15,7 +15,12 @@
   
        
       <div class="sidebar-left__links-wrapper sidebar-top">
-           <router-link to="/" class="sidebar-top__link sidebar-top__link--color" > Работа</router-link>
+
+            <div class="sidebar-top__wrapper-icon-close">
+              <router-link to="/" class="sidebar-top__link sidebar-top__link--color" > Работа</router-link>
+              <div @click="btnClick" class="sidebar-top__icon-close"><img src="../assets/img/icon2.png" alt=""> </div>
+            </div>
+           
             <!-- сделать иконки для пунктов и выводить циклом по url -->
            
             <router-link to="/about" class="sidebar-top__link sidebar-top__link--color"> About</router-link>
@@ -23,7 +28,8 @@
             <router-link to="/four" class="sidebar-top__link sidebar-top__link--color"> four</router-link>
             <!-- class="sidebar-left__link" -->
 
-            <div @click="btnClick">X</div>
+            
+            
             <!-- выход, скачать png иконку и поставить вверх ,курсор поинтер сделать -->
       </div>
 
@@ -163,6 +169,24 @@ methods: {
 
 <style>
 
+.sidebar-top__wrapper-icon-close {
+  position: relative;
+}
+.sidebar-top__icon-close {
+position: absolute;
+    cursor: pointer;
+    top: 5px;
+    left: 125px;
+
+}
+.sidebar-top__icon-close img:hover {
+  transition: 0.5s;
+background:#41b883;
+padding: 5px;
+border-radius: 10px;
+/* border:solid 1px #35495e; */
+ 
+}
 .l {
   display: flex;
   justify-content: center;
