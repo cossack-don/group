@@ -94,10 +94,14 @@
       <!-- START WRAPPER ITEMS -->
       <div>
         <div v-for="(item, idx) in documents" :key="idx">
-          <p v-if="!item.isEditing" class="tx">{{ item.name }}</p>
-          <input v-else type="text" v-model.trim="item.name" />
+          <p v-if="!item.isEditing" class="tx" @click="hideTwoBlocks">{{ item.name }}</p>
+          <input v-else type="text" v-model.trim="item.name" class="hideInput tx"/>
+          
+          <div class="hwq" v-if="hideTwoBlock">
           <button @click="deleteItem(item.id)" class="deleteItemList">удалить</button>
-          <button @click="editItem(item)">{{ item.isEditing ? 'сохранить' : 'изменить' }}</button>
+          <button @click="editItem(item)" class="bsz">{{ item.isEditing ? 'сохранить' : 'изменить' }}</button>
+        </div>
+
         </div>
       </div>
     </div>
@@ -138,6 +142,7 @@ export default {
       newName: '',
       toggle: false,
       hideTwo:false,
+      hideTwoBlock:false
       
     }
   },
@@ -162,7 +167,9 @@ export default {
   //    setTimeout(this.go, 50)
   //   },
 
-
+hideTwoBlocks() {
+this.hideTwoBlock = !this.hideTwoBlock
+},
     hideTwos() {
 this.hideTwo = !this.hideTwo
     },
