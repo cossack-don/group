@@ -26,7 +26,10 @@ export default {
         name:'Whats App',
         url:'https://web.whatsapp.com/'
       },
-
+      {
+        name:'Telegram Web',
+        url:'https://web.telegram.org/k//'
+      },
       {
         name:'VK',
         url:'https://vk.com/id43471214'
@@ -41,28 +44,41 @@ export default {
         name:'Yandex',
         url:'https://yandex.ru/'
       },
+      {
+        name:'Yandex Disk',
+        url:'https://disk.yandex.ru/client/disk'
+      },
 
     ],
 
-
+    
 
     urlsCode: [
-
+      {
+        name:'Youtobe',
+        url:'https://www.youtube.com/'
+      },
       {
         name:'Github',
         url:'https://github.com/'
       },
-
       {
-        name:'To code kurs',
-        url:'https://tocode.ru/'
+        name:'Сервис для скринов кода',
+        url:'https://carbon.now.sh/'
+      },
+      {
+        name:'SendBox',
+        url:'https://codesandbox.io/dashboard/home?workspace=27643da8-70e6-467d-9417-419cd7afc987'
       },
       
       {
         name:'Codepen',
         url:'https://codepen.io/'
       },
-
+      {
+        name:'To code kurs',
+        url:'https://tocode.ru/'
+      },
       {
         name:'Linked In',
         url:'https://www.linkedin.com/feed/'
